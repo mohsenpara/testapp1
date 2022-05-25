@@ -31,7 +31,7 @@ app.use("/admain",admainRoute);
 const feedbackRoute= require("./routes/feedback");
 app.use("/feedback",feedbackRoute);
 
-const Port = process.env.port|| 5001;
+const Port = process.env.port;
 
 
 app.listen(Port, ()=>console.log('your server running on port', Port));
