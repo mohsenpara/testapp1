@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const app = express();
 
-mongoose.connect("mongodb://11a.mongo.evennode.com:27018,11b.mongo.evennode.com:27018/d57d2d6ea637c8ba9913c15f37602fee?replicaSet=eu-11",{
+mongoose.connect("mongodb://root:TJV3FdPTsIUe8rCVfzyMafug@stoic-bell-hy3gesodq-db:27017/my-app?authSource=admin",{
     UseNewUrlParser:true,
     UseUnifiedTopology:true,
 });
