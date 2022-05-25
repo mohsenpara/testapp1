@@ -93,7 +93,6 @@ res.status(200).json(
     );
 
 
-
     router.route("/getchprograms").post((req,res)=>{
 collection.find({channel:req.body.channel,date:{$gte:req.body.date1,$lt:req.body.date2}},{ projection: {
      _id: 0,name: 1,duration: 1,type: 1,date:1, } } )
@@ -115,7 +114,7 @@ res.status(200).json(
     })}
     );
 
-
+ 
 
     
    router.route("/deleteprogram").post((req,res)=>{
