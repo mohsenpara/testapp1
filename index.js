@@ -5,7 +5,6 @@ const app = express();
 
 mongoose.connect("mongodb://11a.mongo.evennode.com:27018,11b.mongo.evennode.com:27018/d57d2d6ea637c8ba9913c15f37602fee?replicaSet=eu-11",{
     UseNewUrlParser:true,
-    UseCreateIndex:true,
     UseUnifiedTopology:true,
 });
 const connection=mongoose.connection;
