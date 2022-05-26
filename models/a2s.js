@@ -1,9 +1,9 @@
 const { Int32 } = require("mongodb");
 const mongoose= require ("mongoose");
 const Schema = mongoose.Schema;
-
-const Program =Schema({
-channel:{
+//p
+const A2 =Schema({
+c2:{
 type : String,
    require : true,
 
@@ -20,19 +20,19 @@ date:{
 type:String,
 
 },
-descpr:{
+descpr:{ 
     type:String,
     require:true,
 },
-duration:{
+d2:{
     type:Number,
     require:true,
 },
-repeat:{
+r2:{
 type : Boolean,
 },
 picpr:{
 type:String,
 },
 });
-module.exports= mongoose.model("programs",Program);
+module.exports= mongoose.model("a2s",A2);

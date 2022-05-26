@@ -3,9 +3,12 @@ const mongoose = require("mongoose");
 
 const app = express();
 
-mongoose.connect("mongodb://root:TJV3FdPTsIUe8rCVfzyMafug@stoic-bell-hy3gesodq-db:27017/my-app?authSource=admin",{
-    UseNewUrlParser:true,
-    UseUnifiedTopology:true,
+mongoose.connect(
+   // "mongodb://root:TJV3FdPTsIUe8rCVfzyMafug@stoic-bell-hy3gesodq-db:27017/my-app?authSource=admin"
+  "mongodb://localhost:27017/AppDB"
+    ,{
+    // UseNewUrlParser:true,
+    // UseUnifiedTopology:true,
 });
 const connection=mongoose.connection;
 
@@ -16,11 +19,11 @@ connection.once("open",()=>{
 });
 app.use(express.json({limit: '15mb'}));
 
-const channelRoute= require("./routes/channel");
-app.use("/channel",channelRoute);
+const a1Route= require("./routes/a1");
+app.use("/a1",a1Route);
 
-const programRoute= require("./routes/program");
-app.use("/program",programRoute);
+const a2Route= require("./routes/a2");
+app.use("/a2",a2Route);
 
 
 const admainRoute= require("./routes/admain");

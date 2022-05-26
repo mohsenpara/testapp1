@@ -1,29 +1,29 @@
 const express = require("express");
-const { collection } = require("../models/programs");
-const Program=require("../models/programs");
+const { collection } = require("../models/a2s");
+const A2=require("../models/a2s");
 const router =express.Router();
 
 
 router.route("/add").get((req,res)=>{
     res.json("your first app 2")
 });
-router.route("/addprogram").post((req,res)=>{
-    console.log("inside the program");
-    const program= new Program({
+router.route("/adda2").post((req,res)=>{
+    console.log("inside the a2");
+    const a2= new A2({
         
-        channel:req.body.channel,
+        c2:req.body.c2,
         type:req.body.type,
         name:req.body.name,
         date:req.body.date,
         descpr:req.body.descpr,
-        repeat:req.body.repeat,
+        r2:req.body.r2,
         picpr:req.body.picpr,
-        duration:req.body.duration,
+        d2:req.body.d2,
     });
-    program
+    a2
     .save()
     .then(()=>{
-        console.log("Program added");
+        console.log("A2 added");
         res.status(200).json("ok");
     })
     .catch((err)=>{
@@ -33,30 +33,26 @@ router.route("/addprogram").post((req,res)=>{
     });
 
 
-    router.route("/getprogram").post((req,res)=>{
-        var query = { channel:req.body.channel , date:req.body.date};
+    router.route("/geta2").post((req,res)=>{
+        var query = { c2:req.body.c2 , date:req.body.date};
 collection.findOne((query), function(err, result) {
     if (err) throw err;
-     //   console.log(result);
-        //result=null;
 res.status(200).json(
     result);
-  // console.log(result);
     })}
     );
 
 
-    router.route("/getallprogram").post((req,res)=>{
-collection.find({channel:req.body.channel,date:{$gte:req.body.date}} )
+    router.route("/getalla2").post((req,res)=>{
+collection.find({c2:req.body.c2,date:{$gte:req.body.date}} )
 .sort({date: 1}) .toArray(function(err, result) {
     if (err) throw err;
 res.status(200).json(
     result);
-  // console.log(result);
     })}
     );
 
-    router.route("/getallbeetprogram").post((req,res)=>{
+    router.route("/getallbeeta2").post((req,res)=>{
 collection.find({date:{$gte:req.body.date,$lt:req.body.date1}} )
 .sort({date: 1}) .toArray(function(err, result) {
     if (err) throw err;
@@ -67,7 +63,7 @@ res.status(200).json(
     );
 
 
-    router.route("/searchprogram").post((req,res)=>{
+    router.route("/searcha2").post((req,res)=>{
    var qeuryObg={};
  // console.log(req.body);
 
@@ -75,7 +71,7 @@ res.status(200).json(
        qeuryObg['date']={$gte:req.body[0]};
     if(req.body[1].length>0) {
 
-        qeuryObg['channel']={$in:[req.body[1]]};
+        qeuryObg['c2']={$in:[req.body[1]]};
     } 
   
     if(req.body[2].length>0) {  qeuryObg['type']={$in:[req.body[2]]};}
@@ -93,34 +89,31 @@ res.status(200).json(
     );
 
 
-    router.route("/getchprograms").post((req,res)=>{
-collection.find({channel:req.body.channel,date:{$gte:req.body.date1,$lt:req.body.date2}},{ projection: {
-     _id: 0,name: 1,duration: 1,type: 1,date:1, } } )
+    router.route("/getcha2s").post((req,res)=>{
+collection.find({c2:req.body.c2,date:{$gte:req.body.date1,$lt:req.body.date2}},{ projection: {
+     _id: 0,name: 1,d2: 1,type: 1,date:1, } } )
 .sort({date: 1}) .toArray(function(err, result) {
     if (err) throw err;
 res.status(200).json(
     result);
-  // console.log(result);
     })}
     );
 
-    router.route("/getallprogram1").post((req,res)=>{
+    router.route("/getalla21").post((req,res)=>{
 collection.find( )
 .sort({date: 1}) .toArray(function(err, result) {
     if (err) throw err;
 res.status(200).json(
     result);
-  // console.log(result);
     })}
     );
 
  
 
     
-   router.route("/deleteprogram").post((req,res)=>{
-collection.deleteOne({channel:req.body.channel,date:req.body.date}, function(err, result) {
+   router.route("/deletea2").post((req,res)=>{
+collection.deleteOne({c2:req.body.c2,date:req.body.date}, function(err, result) {
    if (err) throw err;
-      // console.log(result);
      if (result.deletedCount==1){
          result="success"
      } else{
@@ -130,7 +123,6 @@ collection.deleteOne({channel:req.body.channel,date:req.body.date}, function(err
      
 res.status(200).json(
    result);
- // console.log(result);
    })}
    );
 

@@ -1,8 +1,8 @@
 const mongoose= require ("mongoose");
 const Schema = mongoose.Schema;
 
-
-const Channel =Schema({
+//ch
+const A1 =Schema({
     _id:{
         type : Number,
         require : true,
@@ -19,15 +19,15 @@ const Channel =Schema({
         type : String,
         require : true,
     },
-    freq:{
+    f1:{
         type : String,
         require : true,
     },
-    site:{
+    s1:{
         type : String,
     },
     });
     
 
-    module.exports= mongoose.model("channels",Channel);
+    module.exports= mongoose.model("a1s",A1);
     
